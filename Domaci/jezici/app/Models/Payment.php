@@ -18,9 +18,4 @@ class Payment extends Model
     {
         return $this->belongsToMany(Course::class, 'course_payment');
     }
-
-
-
-
-
 }
