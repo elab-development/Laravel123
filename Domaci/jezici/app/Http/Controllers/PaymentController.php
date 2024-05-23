@@ -43,14 +43,10 @@ class PaymentController extends Controller
         $courses = Course::all();
         return view('payments.add_courses', compact('payment', 'courses'));
     }
-
     public function addCourses(Request $request, $id)
     {
         $payment = Payment::findOrFail($id);
         $payment->courses()->sync($request->course_ids);
-
         return redirect()->route('payments.show', $payment->id);
     }
 }
-
-
